@@ -1,11 +1,19 @@
+import Home from "./Home";
 import "./styles.css";
 import ConsultaCatalogo from "./components/ConsultaCatalogo";
-
-export default function App() {
+import CadastrarProduto from "./components/CadastrarProduto";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+const App = () => {
   return (
-    <div className="App">
-      <h1>FATEC ZL</h1>
-      <ConsultaCatalogo />
-    </div>
+    <Router>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/produtos/catalogo" element={<ConsultaCatalogo />} />
+        <Route path="/produtos/cadastrar" element={<CadastrarProduto />} />
+      </Routes>
+    </Router>
   );
-}
+};
+export default App;
